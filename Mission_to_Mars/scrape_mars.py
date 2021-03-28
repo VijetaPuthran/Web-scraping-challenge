@@ -100,7 +100,7 @@ def scrape():
     mars_planet_profile_html = mars_planet_profile_df.to_html()
     mars_planet_profile_html = mars_planet_profile_html.replace("\n", "")
     mars_planet_profile_html
-
+    mars_scraped_data["mars_profile_table"] = mars_planet_profile_html
 #### Mars Hemispheres
 
 # Setup splinter
@@ -196,5 +196,9 @@ def scrape():
 #Printing the list of dictionaries of the images obtained
     image_urls
 
+    mars_scraped_data["hemisphere_image_urls"] = image_urls
 
+    
+
+    return mars_scraped_data
 

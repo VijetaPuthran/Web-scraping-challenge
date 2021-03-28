@@ -12,7 +12,7 @@ def init_browser():
 
 def scrape():
     browser = init_browser()
-    mars_facts_data = {}    
+    mars_scraped_data = {}    
 
 #### NASA Mars News
 # Scrape the Mars News Site and collect the latest News Title and Paragraph Text. 
@@ -46,6 +46,8 @@ def scrape():
     print(f'Date: {date}')
     print(f'News Title: {news_title}')
     print(f'News Paragraph: {news_p}')
+    mars_scraped_data['news_title'] = news_title
+    mars_scraped_data['news_paragraph'] = news_p 
 
     browser.quit()
 
@@ -80,7 +82,7 @@ def scrape():
     url = 'https://spaceimages-mars.com/'
     featured_image_url = url+image_url
     print(f'Featured image url: {featured_image_url}')
-
+    mars_scraped_data["featured_image_url"] = featured_image_url
     browser.quit()
 
 # URL of the page to be scraped using pandas
@@ -91,7 +93,7 @@ def scrape():
     mars_planet_profile_df.columns = ['Facts','Value']
     mars_planet_profile_df.set_index(['Facts'])
 
-#Saving the able as a tml file
+#Saving the table as a html file
     mars_planet_profile_html = mars_planet_profile_df.to_html('mars_planet_profile.html')
 
 #Converting the table to a html table string

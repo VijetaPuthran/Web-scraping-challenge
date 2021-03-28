@@ -173,20 +173,20 @@ def scrape():
 #Using xpath to click on the exact element on the page
     results = browser.find_by_xpath( "//*[@id='product-section']/div[2]/div[4]/a/img").click()
 #Using xpath to click on the open button on the page
-    valles_marineris_open_click = browser.find_by_xpath( "//*[@id='wide-image-toggle']").click()
+    valles_marineris_open = browser.find_by_xpath( "//*[@id='wide-image-toggle']").click()
 #Using the browser and BeautifulSoup to extract the image src
     valles_marineris_image = browser.html
     soup = BeautifulSoup(valles_marineris_image, "html.parser")
     valles_marineris_url = soup.find("img", class_="wide-image")["src"]
 #Obtaining the url for the image
-    valles_marineris_img_url = hemisphere_base_url + syrtis_major_url
-    print(valles_marineris_img_url)
+    valles_marineris_image_url = hemisphere_base_url + syrtis_major_url
+    print(valles_marineris_image_url)
 #Obtaining the title of the image
     valles_marineris_title = soup.find("h2",class_="title").text
     print(valles_marineris_title)
 #Navigating to the previous page using the back function
     browser.back()
-    valles_marineris = {"image title":valles_marineris_title, "image url": valles_marineris_img_url}
+    valles_marineris = {"image title":valles_marineris_title, "image url": valles_marineris_image_url}
     image_urls.append(valles_marineris)
 
     browser.quit()

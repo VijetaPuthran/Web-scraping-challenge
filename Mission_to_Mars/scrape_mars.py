@@ -198,7 +198,5 @@ def scrape():
 
     mars_scraped_data["hemisphere_image_urls"] = image_urls
 
-    
-
     return mars_scraped_data
 

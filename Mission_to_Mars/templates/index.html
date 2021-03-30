@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="stylesheet.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Mission to Mars</title>
 </head>
 <body>
@@ -52,16 +57,16 @@
                     <H3 align="center">Mars Hemispheres</H3>
                     <div class="body">
                     <div class="row">
-                        <div class="col-md-6">
-                            {% for hemisphere in data.hemisphere_image_urls[0:2] %}
+<!--                         <div class="col-md-6">
+                            {% for hemisphere in data.hemisphere_image_urls %}
                             
                             <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:50%;">
                             <div class="caption"style="font-weight: bold;">
                                 {{hemisphere['image title']}}
                             </div>                                           
                             {% endfor %}
-                        </div>
-                        <div class="col-md-6">
+                        </div> -->
+                        <!-- <div class="col-md-6">
                             {% for hemisphere in data.hemisphere_image_urls[2:4] %}
                             
                             <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:50%;">
@@ -71,7 +76,35 @@
                             {% endfor %}
 
 
+                        </div> -->
+
+
+
+
+                        <div class="d-flex flex-md-nowrap flex-nowrap flex-lg-nowrap flex-sm-nowrap">
+                            {% for hemisphere in data.hemisphere_image_urls %}
+                            <div class='m-2'>
+                                <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:20vw;">
+                                <div class="caption"style="font-weight: bold;">
+                                    {{hemisphere['image title']}}
+                                </div>
+                            </div>
+                            <!-- <div >
+                            <img src="{{hemisphere['image url']}}" alt="hemisphere"> 
+                             <div class="caption"style="font-weight: bold;">
+                                {{hemisphere['image title']}}
+                            </div>   -->
+                            {% endfor %}
+                            </div>
                         </div>
+
+
+
+
+
+
+
+                        
                     </div>
                     </div>
 

@@ -91,7 +91,7 @@ def scrape():
     mars_planet_profile_table = pd.read_html(url4)
     mars_planet_profile_df = mars_planet_profile_table[0]
     mars_planet_profile_df.columns = ['Parameter','Mars', 'Earth']
-    mars_planet_profile_df.set_index(['Parameter'])
+    mars_planet_profile_df.set_index(['Parameter'], inplace = True)
 
 #Saving the table as a html file
     #mars_planet_profile_html = mars_planet_profile_df.to_html('mars_planet_profile.html')

@@ -35,15 +35,15 @@
                         <div class="col-md-7">
                             <h3>Featured Image</h3>
                             
-                            <img src="{{data.featured_image}}" alt="featured image" style="width: 80%;">
+                            <img src="{{data.featured_image_url}}" alt="featured image" style="width: 80%;">
 
                         </div>
                         <div class="col-md-5">                              
                                 
                             <ul>
                                 <h3>Mars Facts</h3>
-                                {{data.mars_facts_table|safe}}
-                                <a href="{{data.mars_facts_table}}"></a>
+                                {{data.mars_profile_table}}
+                                <a href="{{data.mars_profile_table}}"></a>
                             </ul>
                         </div>
                     </div>                 
@@ -54,7 +54,7 @@
                     <div class="body">
                     <div class="row">
                         <div class="col-md-6">
-                            {% for hemisphere in data.hemisphere_img_url[0:2] %}
+                            {% for hemisphere in data.hemisphere_image_urls[0:2] %}
                             
                             <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:50%;">
                             <div class="caption"style="font-weight: bold;">
@@ -63,7 +63,7 @@
                             {% endfor %}
                         </div>
                         <div class="col-md-6">
-                            {% for hemisphere in data.hemisphere_img_url[2:4] %}
+                            {% for hemisphere in data.hemisphere_image_urls[2:4] %}
                             
                             <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:50%;">
                             <div class="caption" style="font-weight: bold;">

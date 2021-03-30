@@ -3,7 +3,7 @@
 ![mission_to_mars](Mission_to_Mars/mission_to_mars.jpg)
 
 
-The assignment involves building a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. Thetask includes the following steps:
+The assignment involves building a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. The task includes the following steps:
 
 
 ## Step 1 - Scraping
@@ -20,7 +20,7 @@ The initial scraping is conducted using Jupyter Notebook, BeautifulSoup, Pandas,
 
 * The url that is used for the Featured Space Image site is [here](https://spaceimages-mars.com).
 
-* splinter is used to navigate the site and to find the image url for the current Featured Mars Image and the url string is assigned to a variable called `featured_image_url`.
+* The splinter library is used to navigate the site and to find the image url for the current Featured Mars Image and the url string is assigned to a variable called `featured_image_url`.
 
 * The image url to the full size `.jpg` image is located.
 
@@ -41,7 +41,7 @@ The initial scraping is conducted using Jupyter Notebook, BeautifulSoup, Pandas,
 
 * The image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name was saved. Then a Python dictionary was used to store the data using the keys `img_url` and `title`.
 
-* The dictionary was appended with the image url string and the hemisphere title to a list. This list will contain one dictionary for each hemisphere.
+* The dictionary was appended with the image url string and the hemisphere title, into a list. This list will contain one dictionary for each hemisphere.
 
 
 ## Step 2 - MongoDB and Flask Application

@@ -16,7 +16,7 @@
                     <h1 align="center">Mission to Mars</h1>
                     
                     <p align="Center">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Scrape New Data</a>
+                        <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
                     </p>
                 </div>
                 <div class="page-header">
@@ -42,8 +42,7 @@
                                 
                             <ul>
                                 <h3>Mars Facts</h3>
-                                {{data.mars_profile_table}}
-                                <a href="{{data.mars_profile_table}}"></a>
+                            {{data.mars_profile_table|safe}}
                             </ul>
                         </div>
                     </div>                 

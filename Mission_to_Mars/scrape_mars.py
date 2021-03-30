@@ -31,7 +31,7 @@ def scrape():
     soup = BeautifulSoup(html, 'html.parser')
 
 # Examine the results, then determine element that contains sought info
-    print(soup.prettify())
+    #print(soup.prettify())
 
 # The results are returned as an iterable list
     results = soup.find_all('div', class_='list_text')[0]
@@ -43,20 +43,20 @@ def scrape():
     news_p = results.find('div', class_='article_teaser_body').text
 # Identifying and returning the latest date
     date = results.find('div', class_='list_date').text
-    print(f'Date: {date}')
-    print(f'News Title: {news_title}')
-    print(f'News Paragraph: {news_p}')
+    #print(f'Date: {date}')
+    #print(f'News Title: {news_title}')
+    #print(f'News Paragraph: {news_p}')
     mars_scraped_data['news_title'] = news_title
     mars_scraped_data['news_paragraph'] = news_p 
 
-    browser.quit()
+    #browser.quit()
 
 
 # ### JPL Mars Space Images - Featured Image
 
 # Setup splinter
-    executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+#    executable_path = {'executable_path': ChromeDriverManager().install()}
+#    browser = Browser('chrome', **executable_path, headless=False)
 
 # URL of the page to be scraped
     url2 = 'https://spaceimages-mars.com/'
@@ -67,7 +67,7 @@ def scrape():
     soup2 = BeautifulSoup(html2, 'html.parser')
 
 # Examine the results, then determine element that contains sought info
-    print(soup2.prettify())
+    #print(soup2.prettify())
 
 # Splinter is used to click on the button to retreive the full image
     browser.links.find_by_partial_text('FULL IMAGE').click()
@@ -81,31 +81,30 @@ def scrape():
     image_url = soup3.find('img', class_='fancybox-image')['src']
     url = 'https://spaceimages-mars.com/'
     featured_image_url = url+image_url
-    print(f'Featured image url: {featured_image_url}')
+    #print(f'Featured image url: {featured_image_url}')
     mars_scraped_data["featured_image_url"] = featured_image_url
-    browser.quit()
+    #browser.quit()
 
 # URL of the page to be scraped using pandas
     url4 = 'https://galaxyfacts-mars.com/'
 
     mars_planet_profile_table = pd.read_html(url4)
-    mars_planet_profile_df = mars_planet_profile_table[1]
-    mars_planet_profile_df.columns = ['Facts','Value']
-    mars_planet_profile_df.set_index(['Facts'])
+    mars_planet_profile_df = mars_planet_profile_table[0]
+    mars_planet_profile_df.columns = ['Parameter','Mars', 'Earth']
+    mars_planet_profile_df.set_index(['Parameter'])
 
 #Saving the table as a html file
-    mars_planet_profile_html = mars_planet_profile_df.to_html('mars_planet_profile.html')
+    #mars_planet_profile_html = mars_planet_profile_df.to_html('mars_planet_profile.html')
 
 #Converting the table to a html table string
     mars_planet_profile_html = mars_planet_profile_df.to_html()
     mars_planet_profile_html = mars_planet_profile_html.replace("\n", "")
-    mars_planet_profile_html
     mars_scraped_data["mars_profile_table"] = mars_planet_profile_html
 #### Mars Hemispheres
 
 # Setup splinter
-    executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+#    executable_path = {'executable_path': ChromeDriverManager().install()}
+#    browser = Browser('chrome', **executable_path, headless=False)
 
 # Url of the page to be scraped
     hemisphere_base_url = "https://marshemispheres.com/"
@@ -123,10 +122,10 @@ def scrape():
     cerberus_url = soup.find("img", class_="wide-image")["src"]
 #Obtaining the url for the image
     cerberus_image_url = hemisphere_base_url + cerberus_url
-    print(cerberus_image_url)
+    #print(cerberus_image_url)
 #Obtaining the title of the image
     cerberus_title = soup.find("h2",class_="title").text
-    print(cerberus_title)
+    #print(cerberus_title)
 #Navigating to the previous page using the back function
     browser.back()
 #Appending the url list with the first dictionary of image records
@@ -143,10 +142,10 @@ def scrape():
     schiaparelli_url = soup.find("img", class_="wide-image")["src"]
 #Obtaining the url for the image
     schiaparelli_image_url = hemisphere_base_url + schiaparelli_url
-    print(schiaparelli_image_url)
+    #print(schiaparelli_image_url)
 #Obtaining the title of the image
     schiaparelli_title = soup.find("h2",class_="title").text
-    print(schiaparelli_title)
+    #print(schiaparelli_title)
 #Navigating to the previous page using the back function
     browser.back()
 #Appending the url list with the second dictionary of image records
@@ -163,10 +162,10 @@ def scrape():
     syrtis_major_url = soup.find("img", class_="wide-image")["src"]
 #Obtaining the url for the image
     syrtis_major_image_url = hemisphere_base_url + syrtis_major_url
-    print(syrtis_major_image_url)
+    #print(syrtis_major_image_url)
 #Obtaining the title of the image
     syrtis_major_title = soup.find("h2",class_="title").text
-    print(syrtis_major_title)
+    #print(syrtis_major_title)
 #Navigating to the previous page using the back function
     browser.back()
     syrtis_major = {"image title":syrtis_major_title, "image url": syrtis_major_image_url}
@@ -182,10 +181,10 @@ def scrape():
     valles_marineris_url = soup.find("img", class_="wide-image")["src"]
 #Obtaining the url for the image
     valles_marineris_image_url = hemisphere_base_url + syrtis_major_url
-    print(valles_marineris_image_url)
+    #print(valles_marineris_image_url)
 #Obtaining the title of the image
     valles_marineris_title = soup.find("h2",class_="title").text
-    print(valles_marineris_title)
+    #print(valles_marineris_title)
 #Navigating to the previous page using the back function
     browser.back()
     valles_marineris = {"image title":valles_marineris_title, "image url": valles_marineris_image_url}
@@ -194,9 +193,8 @@ def scrape():
     browser.quit()
 
 #Printing the list of dictionaries of the images obtained
-    image_urls
+    #image_urls
 
     mars_scraped_data["hemisphere_image_urls"] = image_urls
 
     return mars_scraped_data
-

@@ -14,8 +14,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Mission to Mars</title>
+
+    <style>
+        th {
+            text-align: center;
+            padding: 0 8px 0 8px;
+        }
+        td {
+            padding: 8px;
+        }
+    </style>
 </head>
-<body>
+<body class='m-5'>
         <div clas="container">
                 <div class="jumbotron">
                     <h1 align="center">Mission to Mars</h1>
@@ -24,7 +34,7 @@
                         <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
                     </p>
                 </div>
-                <div class="page-header">
+                <div class="page-header ml-3">
                     <h1>Latest Mars News</h1>
                 </div>
         </div>  
@@ -37,84 +47,38 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <h3>Featured Image</h3>
                             
-                            <img src="{{data.featured_image_url}}" alt="featured image" style="width: 80%;">
+                            <img src="{{data.featured_image_url}}" alt="featured image" style="width: 90%;">
 
                         </div>
-                        <div class="col-md-5">                              
+                        <div class="col-md-6">                              
                                 
-                            <ul>
-                                <h3>Mars Facts</h3>
+                            <h3>Mars Facts</h3>
                             {{data.mars_profile_table|safe}}
-                            </ul>
                         </div>
                     </div>                 
                 </div>
                 
-                <div class="container-fluid">
-                    <H3 align="center">Mars Hemispheres</H3>
-                    <div class="body">
-                    <div class="row">
-<!--                         <div class="col-md-6">
-                            {% for hemisphere in data.hemisphere_image_urls %}
-                            
-                            <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:50%;">
-                            <div class="caption"style="font-weight: bold;">
-                                {{hemisphere['image title']}}
-                            </div>                                           
-                            {% endfor %}
-                        </div> -->
-                        <!-- <div class="col-md-6">
-                            {% for hemisphere in data.hemisphere_image_urls[2:4] %}
-                            
-                            <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:50%;">
-                            <div class="caption" style="font-weight: bold;">
-                                {{hemisphere['image title']}}
-                            </div>                                           
-                            {% endfor %}
-
-
-                        </div> -->
-
-
-
-
-                        <div class="d-flex flex-md-nowrap flex-nowrap flex-lg-nowrap flex-sm-nowrap">
-                            {% for hemisphere in data.hemisphere_image_urls %}
-                            <div class='m-2'>
-                                <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:20vw;">
-                                <div class="caption"style="font-weight: bold;">
-                                    {{hemisphere['image title']}}
-                                </div>
-                            </div>
-                            <!-- <div >
-                            <img src="{{hemisphere['image url']}}" alt="hemisphere"> 
-                             <div class="caption"style="font-weight: bold;">
-                                {{hemisphere['image title']}}
-                            </div>   -->
-                            {% endfor %}
-                            </div>
-                        </div>
-
-
-
-
-
-
-
-                        
-                    </div>
-                    </div>
-
+                <div class="row d-flex justify-content-center mt-5">
+                    <H3>Mars Hemispheres</H3>
                 </div>
                 
-                
-                {% endfor %}              
-                             
+                <div class="row d-flex flex-md-nowrap flex-nowrap flex-lg-nowrap flex-sm-nowrap justify-content-center mt-2 mb-4">
+                    {% for hemisphere in data.hemisphere_image_urls %}
+                        <div class='m-2'>
+                            <img src="{{hemisphere['image url']}}" alt="hemisphere" style="width:22vw;">
+                            <div class="caption"style="font-weight: bold;">
+                                {{hemisphere['image title']}}
+                            </div>
+                        </div>
+                        
+                        {% endfor %}
+                </div>
+
+                {% endfor %}
             </div>
-            
         </div>
     
 </body>

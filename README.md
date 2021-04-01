@@ -58,6 +58,6 @@ MongoDB is used with Flask templating to create a new HTML page that displays al
 
 * A template HTML file is created called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements. 
 
-![final_app_part1.png](Images/final_app.png)
+
 
 
